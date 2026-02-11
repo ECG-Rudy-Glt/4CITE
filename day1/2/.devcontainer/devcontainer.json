@@ -1,0 +1,14 @@
+{
+    "name": "Cart Dev Environment",
+    "image": "mcr.microsoft.com/devcontainers/typescript-node:20", 
+    "customizations": {
+        "antigravity": {
+            "extensions": [
+                "dbaeumer.vscode-eslint",
+                "esbenp.prettier-vscode",
+                "ms-vscode.vscode-typescript-next"
+            ]
+        }
+    },
+    "postCreateCommand": "npm install"
+}

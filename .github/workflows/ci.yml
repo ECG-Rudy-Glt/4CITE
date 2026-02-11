@@ -1,0 +1,23 @@
+name: CI - 4CITE Exercises
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        project: [ 'day1/1', 'day1/2' ]
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Build Docker image (${{ matrix.project }})
+      run: docker build -t ${{ matrix.project }} -f ${{ matrix.project }}/Dockerfile ${{ matrix.project }}
+
+    - name: Run tests in Docker (${{ matrix.project }})
+      run: docker run ${{ matrix.project }}
