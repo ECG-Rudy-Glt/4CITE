@@ -5,7 +5,8 @@ Ce dépôt contient les exercices de test de logique métier pour le jour 1. Cha
 ## Structure du Projet
 
 - `day1/1` : Test de l'âge adulte (TypeScript + Jest)
-- `day1/2` : Logique de panier d'achat (TypeScript + Jest)
+- `day1/2` : Logique de panier d'achat (Approche fonctionnelle)
+- `day1/3` : Logique de panier d'achat (Approche Orientée Objet)
 - `.github/workflows` : Intégration continue (CI) automatique.
 
 ---
@@ -21,10 +22,16 @@ docker build -t age-test -f day1/1/Dockerfile day1/1
 docker run age-test
 ```
 
-#### Exercice 2 : Panier d'Achat
+#### Exercice 2 : Panier d'Achat (Approche fonctionnelle)
 ```powershell
 docker build -t cart-test -f day1/2/Dockerfile day1/2
 docker run cart-test
+```
+
+#### Exercice 3 : Panier d'Achat (Approche POO)
+```powershell
+docker build -t cart-oop-test -f day1/3/Dockerfile day1/3
+docker run cart-oop-test
 ```
 
 ### 2. En local (via NPM Workspaces)
