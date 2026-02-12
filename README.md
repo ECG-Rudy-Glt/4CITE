@@ -1,38 +1,36 @@
-# 4CITE Exercises - Day 1
+# 4CITE Exercises
 
-Ce dépôt contient les exercices de test de logique métier pour le jour 1. Chaque exercice est isolé dans son propre dossier et possède son propre environnement Docker.
+Ce dépôt contient les exercices de test de logique métier. Chaque exercice est isolé dans son propre dossier et possède son propre environnement Docker.
 
 ## Structure du Projet
 
+### Jour 1
 - `day1/1` : Test de l'âge adulte (TypeScript + Jest)
 - `day1/2` : Logique de panier d'achat (Approche fonctionnelle)
 - `day1/3` : Logique de panier d'achat (Approche Orientée Objet)
-- `.github/workflows` : Intégration continue (CI) automatique.
+
+### Jour 2
+- `day2/ex1` : Système de paiement e-commerce (Mocks + TypeScript)
 
 ---
 
 ## Comment Tester 🧪
 
 ### 1. En utilisant Docker (Recommandé)
-Chaque projet peut être testé de manière isolée sans rien installer localement.
 
-#### Exercice 1 : Âge Adulte
+#### Jour 2 - Exercice 1 : Système de Paiement
+```powershell
+docker build -t order-service-test -f day2/ex1/Dockerfile day2/ex1
+docker run --rm order-service-test
+```
+
+#### Jour 1 - Exercice 1 : Âge Adulte
 ```powershell
 docker build -t age-test -f day1/1/Dockerfile day1/1
 docker run age-test
 ```
 
-#### Exercice 2 : Panier d'Achat (Approche fonctionnelle)
-```powershell
-docker build -t cart-test -f day1/2/Dockerfile day1/2
-docker run cart-test
-```
-
-#### Exercice 3 : Panier d'Achat (Approche POO)
-```powershell
-docker build -t cart-oop-test -f day1/3/Dockerfile day1/3
-docker run cart-oop-test
-```
+... (voir les autres commandes dans les dossiers respectifs)
 
 ### 2. En local (via NPM Workspaces)
 Si vous avez Node.js installé sur votre machine :
@@ -45,8 +43,7 @@ npm install
 npm test
 
 # Lancer les tests d'un projet spécifique
-npm test -w day1/1
-npm test -w day1/2
+npm test -w day2/ex1
 ```
 
 ---

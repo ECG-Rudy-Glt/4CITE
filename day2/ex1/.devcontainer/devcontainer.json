@@ -1,0 +1,31 @@
+{
+    "name": "TS Dev Environment",
+    "image": "mcr.microsoft.com/devcontainers/typescript-node:20", 
+    "customizations": {
+        "antigravity": {
+            "extensions": [
+                "dbaeumer.vscode-eslint",
+                "esbenp.prettier-vscode",
+                "ms-vscode.vscode-typescript-next"
+            ]
+        },
+        "vscode": {
+            "extensions": [
+                "dbaeumer.vscode-eslint",
+                "esbenp.prettier-vscode",
+                "ms-vscode.vscode-typescript-next"
+            ]
+        }
+    },
+    "features": {
+        "ghcr.io/devcontainers/features/node:1": {
+            "version": "latest"
+        }
+    },
+    "forwardPorts": [3000],
+    "remoteUser": "node",
+    "mounts": [
+        "source=project-node-modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
+    ],
+    "postCreateCommand": "npm install"
+}
