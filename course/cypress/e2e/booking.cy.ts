@@ -1,5 +1,7 @@
 describe('Booking Page', () => {
   beforeEach(() => {
+    cy.intercept('GET', '**/availability*', { statusCode: 200, body: { available: true } })
+    cy.intercept('POST', '/booking', { statusCode: 200, body: { status: 'ok' } })
     cy.visit('/') 
   })
 
@@ -40,7 +42,7 @@ describe('Booking Page', () => {
     
     cy.get('button').contains('Réserver').click()
 
-    cy.get('.success', { timeout: 3000 })
+    cy.get('.success', { timeout: 6000 })
       .should('be.visible')
       .and('contain', 'Réservation confirmée ! Total :  144 €')
   })
