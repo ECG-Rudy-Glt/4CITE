@@ -51,10 +51,15 @@ export class BookingPresenter {
             total: this.calculateTotalPrice()
         }
 
-        await this._bookingRepository.createBooking(bookingData)
-        this.viewModel.displaySuccessMessage = true;
-        this.viewModel.displayErrorMessage = false;
-        this.viewModel.message = `Réservation confirmée ! Total :  ${this.calculateTotalPrice()} €`;
+        try {
+            await this._bookingRepository.createBooking(bookingData)
+            this.viewModel.displaySuccessMessage = true;
+            this.viewModel.displayErrorMessage = false;
+            this.viewModel.message = `Réservation confirmée ! Total :  ${this.calculateTotalPrice()} €`;
+        } catch (error) {
+            this.displayErrorMessage();
+            this.viewModel.message = "Erreur lors de la réservation";
+        }
         this.endLoading();
 
     }
